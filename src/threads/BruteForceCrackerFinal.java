@@ -1,3 +1,4 @@
+
 package threads;
 
 import java.util.ArrayList;
@@ -14,11 +15,13 @@ public class BruteForceCrackerFinal {
 	
 	public static void main(String[] args) {
 		System.out.println("Starting Brute Force Checker");
-		System.out.print("Checked Number: ");
+		System.out.print("Cracked code: ");
+		
 		startTime = System.currentTimeMillis();
+		
 		ArrayList<Integer> store = SplitStore(code);
-		int check = 0;
 		Thread[] thread = new Thread[9];
+		
 		for(int i = 0; i<9; i++) {
 			int k = i;
 			thread[i] = new Thread(new Runnable() {
@@ -37,11 +40,21 @@ public class BruteForceCrackerFinal {
 			
 			});
 		}
+		//startTime = System.currentTimeMillis();
 		for(int i= 0; i<9; i++) {
 			thread[i].start();
 		}
-		System.out.println("\nTotal time taken: " + elapsedTime + " seconds");
-		System.out.println("code: " + code);
+		
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("\nActual code: " + code);
+		System.out.println("Total time taken: " + elapsedTime + " seconds");
+		
 	}
 	
 	public static ArrayList<Integer> SplitStore(long b) {
