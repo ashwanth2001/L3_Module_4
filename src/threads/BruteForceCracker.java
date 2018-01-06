@@ -5,6 +5,7 @@
 // Let's see who can crack the code the fastest!
 
 // Pro-tip: Do not include the creation of the threads as part of the time. 
+package threads;
 
 import java.util.Random;
 
